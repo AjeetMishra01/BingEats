@@ -30,7 +30,7 @@ Cloud storage for menu images and other assets
 
 Cloud-based database for order management and user data
 
-Web technologies: HTML, CSS, JavaScript, and backend framework of your choice
+Web technologies: MERN 
 
 Benefits
 
