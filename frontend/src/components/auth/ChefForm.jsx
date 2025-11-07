@@ -4,7 +4,6 @@ function ChefForm() {
   const [profileImage, setProfileImage] = useState(null);
   const [kitchenImages, setKitchenImages] = useState([]);
 
-  // Handle profile photo upload
   const handleProfileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -12,9 +11,8 @@ function ChefForm() {
     }
   };
 
-  // Handle multiple kitchen image uploads
   const handleKitchenImagesChange = (e) => {
-    const files = Array.from(e.target.files).slice(0, 4); // Limit to 4 images
+    const files = Array.from(e.target.files).slice(0, 4); 
     const imageUrls = files.map((file) => URL.createObjectURL(file));
     setKitchenImages(imageUrls);
   };
@@ -56,7 +54,6 @@ function ChefForm() {
         className="border p-2 mb-3 rounded-md"
       />
 
-      {/* Profile Photo Upload */}
       <label className="font-medium mb-1 text-gray-700">Profile Photo</label>
       <input
         type="file"
@@ -65,7 +62,6 @@ function ChefForm() {
         onChange={handleProfileChange}
       />
 
-      {/* Profile Preview */}
       {profileImage && (
         <div className="mb-3 flex justify-center">
           <img
@@ -76,7 +72,6 @@ function ChefForm() {
         </div>
       )}
 
-      {/* Kitchen Photos Upload */}
       <label className="font-medium mb-1 text-gray-700">
         Upload Kitchen Images (up to 4)
       </label>
@@ -88,7 +83,6 @@ function ChefForm() {
         onChange={handleKitchenImagesChange}
       />
 
-      {/* Kitchen Previews */}
       {kitchenImages.length > 0 && (
         <div className="grid grid-cols-2 gap-3 mb-3">
           {kitchenImages.map((img, index) => (
