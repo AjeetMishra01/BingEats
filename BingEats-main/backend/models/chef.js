@@ -61,7 +61,7 @@ const chefSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// 🔐 Hash password before saving
+// Hash password before saving
 chefSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
   const salt = await bcrypt.genSalt(10);
@@ -69,7 +69,7 @@ chefSchema.pre("save", async function (next) {
   next();
 });
 
-// 🔍 Compare entered password with hashed one
+//Compare entered password with hashed one
 chefSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
